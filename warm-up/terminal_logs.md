@@ -1,7 +1,7 @@
 ```
 burgos1337@LAPTOP-4VD7KB18:/mnt/c/Users/Lenovo/Desktop$ make -f Makefile
-aarch64-linux-gnu-as main.s -g -o main.o
-aarch64-linux-gnu-gcc main.o -o main -nostdlib -static
+aarch64-linux-gnu-as -g main.s -o main.o
+aarch64-linux-gnu-ld -g -static main.o -o main
 burgos1337@LAPTOP-4VD7KB18:/mnt/c/Users/Lenovo/Desktop$ qemu-aarch64 -g 1234 ./main
 Good job!
 burgos1337@LAPTOP-4VD7KB18:/mnt/c/Users/Lenovo/Desktop$

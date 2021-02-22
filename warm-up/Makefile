@@ -1,14 +1,23 @@
-AS = aarch64-linux-gnu-as
-CC = aarch64-linux-gnu-gcc
-CFLAGS = -nostdlib -static
+CROSS-COMPILE ?= aarch64-linux-gnu-
 
-all: main
+AS = $(CROSS-COMPILE)as
+LD = $(CROSS-COMPILE)ld
 
-main: main.o
-	$(CC) main.o -o main $(CFLAGS)
+ASFLAGS = -g
+LDFLAGS = -g -static
 
-main.o: main.s
-	$(AS) main.s -g -o main.o
+SRCS = main.s
+OBJS = $(SRCS:.s=.o)
+
+EXE = main
+
+all: $(SRCS) $(EXE)
 
 clean:
-	rm -rf *.o main
+	rm -rf $(EXE) $(OBJS)
+
+$(EXE): $(OBJS)
+	$(LD) $(LDFLAGS) $(OBJS) -o $@
+
+.s.o:
+	$(AS) $(ASFLAGS) $< -o $@
