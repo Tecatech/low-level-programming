@@ -15,5 +15,5 @@ _start:
     svc 0
 
 .section .data
-    message:
+message:
     .ascii "Good job!\n"
