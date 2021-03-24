@@ -36,19 +36,19 @@ _balance_shift:
     mov     w7, w1
     b       _initial_element_handler
 _selection_sort_finish:
-    ldr     x15, [x5, x11, lsl #3]
-    cmp     x10, x15
+    ldr     x14, [x5, x9, lsl #3]
+    cmp     x10, x14
     bge     _elements_reversal
     b       _diag_sort_type_definition
 _elements_reversal:
-    str     x10, [x5, x11, lsl #3]
-    str     x15, [x5, x9, lsl #3]
+    str     x10, [x5, x9, lsl #3]
+    str     x14, [x5, x8, lsl #3]
 _diag_sort_type_definition:
     sub     w7, w7, #1
-    sdiv    w16, w11, w2
-    msub    w17, w2, w16, w11
-    madd    w18, w0, w17, w11
-    cmp     w4, w18
+    sdiv    w15, w8, w2
+    msub    w16, w2, w15, w8
+    madd    w17, w0, w16, w8
+    cmp     w4, w17
     blt     _columns_diag_sort_entry
 _rows_diag_sort_entry:
     cmp     w6, w7
@@ -60,19 +60,18 @@ _columns_diag_sort_entry:
 _initial_element_handler:
     mov     w8, w6
     mov     w9, w6
-    ldr     x10, [x5, x9, lsl #3]
+    ldr     x10, [x5, x8, lsl #3]
 _final_element_handler:
-    add     w11, w2, w8
-    sdiv    w12, w11, w0
-    msub    w13, w0, w12, w11
-    cmp     w7, w13
+    add     w9, w2, w9
+    sdiv    w11, w9, w0
+    msub    w12, w0, w11, w9
+    cmp     w7, w12
     beq     _selection_sort_finish
-    mov     w8, w11
-    ldr     x14, [x5, x8, lsl #3]
-    cmp     x10, x14
+    ldr     x13, [x5, x9, lsl #3]
+    cmp     x10, x13
     bge     _final_element_handler
-    mov     w9, w8
-    mov     x10, x14
+    mov     w8, w9
+    mov     x10, x13
     b       _final_element_handler
 exit:
     mov     x0, #0
