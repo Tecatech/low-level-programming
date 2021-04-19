@@ -77,4 +77,4 @@ exit:
     mov     x0, #0
     mov     x8, #93
     svc     #0
-    .size   _start, .-_start
+    .size   _start, . - _start
