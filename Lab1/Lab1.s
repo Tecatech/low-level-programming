@@ -49,4 +49,4 @@ exception:
 exit:
     mov     x8, #93
     svc     #0
-    .size   _start, .-_start    // определение размера символа _start
+    .size   _start, . - _start    // определение размера символа _start
