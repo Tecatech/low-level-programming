@@ -25,12 +25,14 @@ _start:
     mov     w6, w1
 _rows_diag_sort:
     subs    w6, w6, #1
-    beq     _columns_diag_sort
+    bmi     _columns_diag_sort_preparation
     b       _balance_shift
+_columns_diag_sort_preparation:
+    add     w6, w6, #1
 _columns_diag_sort:
     add     w6, w0, w6
     cmp     w3, w6
-    beq     exit
+    beq     _exit
     sub     w1, w1, #1
 _balance_shift:
     mov     w7, w1
@@ -73,7 +75,7 @@ _final_element_handler:
     mov     w8, w9
     mov     x10, x13
     b       _final_element_handler
-exit:
+_exit:
     mov     x0, #0
     mov     x8, #93
     svc     #0
