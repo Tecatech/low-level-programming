@@ -15,6 +15,7 @@ _start:
     ldr     x1, = msg
     mov     x2, #10
     svc     #0
+_exit:
     mov     x0, #0
     mov     x8, #93
     svc     #0
