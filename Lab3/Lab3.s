@@ -72,7 +72,7 @@ work:
     b       10f
 0:
     str     x0, [x29, fd]
-	mov     w3, #10
+    mov     w3, #10
 1:
     ldr     x0, [x29, fd]
     add     x1, x29, buffer
