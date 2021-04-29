@@ -1,4 +1,4 @@
-    .arch armv8-a
+    .arch   armv8-a
     
     .data
     .align  3
