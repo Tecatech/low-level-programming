@@ -57,8 +57,7 @@ _rows_diag_sort_entry:
     beq     _rows_diag_sort
     b       _initial_element_handler
 _columns_diag_sort_entry:
-    cmp     w7, #0
-    beq     _columns_diag_sort
+    cbz     w7, _columns_diag_sort
 _initial_element_handler:
     mov     w8, w6
     mov     w9, w6

@@ -11,9 +11,9 @@ msg:
     .type   _start, %function
 _start:
     mov     x0, #1
-    mov     x8, #64
     ldr     x1, = msg
     mov     x2, #10
+    mov     x8, #64
     svc     #0
 _exit:
     mov     x0, #0

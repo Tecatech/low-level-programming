@@ -52,8 +52,8 @@ _start:
     .align  2
     .equ    filename, 16
     .equ    fd, 24
-    .equ    buffer, 32
-    .equ    result, 1056
+    .equ    buf, 32
+    .equ    res, 1056
     .equ    numlen, 2080
 work:
     mov     x16, #2084
@@ -75,7 +75,7 @@ work:
     mov     w3, #10
 1:
     ldr     x0, [x29, fd]
-    add     x1, x29, buffer
+    add     x1, x29, buf
     mov     x2, #1024
     mov     x8, #63
     svc     #0
@@ -91,9 +91,9 @@ work:
     mov     x0, #1
     b       10f
 2:
-    add     x1, x29, buffer
+    add     x1, x29, buf
     strb    wzr, [x1, x0]
-    add     x4, x29, result
+    add     x4, x29, res
     mov     x5, x4
     add     x6, x29, numlen
     mov     x7, x6
@@ -135,7 +135,7 @@ work:
     mov     w0, '\n'
     strb    w0, [x4], #1
     mov     x0, #1
-    add     x1, x29, result
+    add     x1, x29, res
     sub     x2, x4, x1
     mov     x8, #64
     svc     #0
