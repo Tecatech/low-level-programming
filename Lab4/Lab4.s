@@ -34,9 +34,9 @@ custom_arcsin:
     fmov    d17, d0
     fmov    d18, d1
     fmov    d0, #1.0
-    fmov    d2, #1.0
-    fsub    d0, d0, d2
-    fmov    d2, d17
+    fmov    d1, #1.0
+    fsub    d0, d0, d1
+    fmov    d1, d17
     ldr     x0, [x29, output]
     adr     x1, msg8
     bl      fprintf
@@ -72,7 +72,7 @@ custom_arcsin:
     fmov    d22, d8
     fmov    d23, d9
     fmov    d0, d8
-    fmov    d2, d13
+    fmov    d1, d13
     adr     x1, msg8
     bl      fprintf
     cmp     x0, #0
