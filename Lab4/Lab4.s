@@ -54,7 +54,7 @@ custom_arcsin:
     fmov    d9, d3
     fmul    d10, d6, d8
     fsub    d11, d10, d5
-    fadd    d12, d10, d5
+    fadd    d12, d5, d10
     fmul    d2, d2, d4
     fmul    d2, d2, d10
     fmul    d2, d2, d11
@@ -78,7 +78,6 @@ custom_arcsin:
     cmp     x0, #0
     blt     1f
     fmov    d0, d13
-    fsub    d13, d20, d23
     bl      fabs
     ldr     x0, [x29, output]
     fmov    d5, #1.0
