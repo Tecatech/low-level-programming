@@ -77,6 +77,7 @@ custom_arcsin:
     bl      fprintf
     cmp     x0, #0
     blt     1f
+    fsub    d13, d20, d23
     fmov    d0, d13
     bl      fabs
     ldr     x0, [x29, output]
