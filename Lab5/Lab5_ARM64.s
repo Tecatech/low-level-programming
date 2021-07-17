@@ -62,7 +62,7 @@ image_rotation_arm64:
 1:
     add     x11, x11, #1
     cmp     x9, x11
-    ble     4f
+    ble     3f
     mov     x12, #-1
 2:
     add     x12, x12, #1
@@ -105,7 +105,7 @@ image_rotation_arm64:
     ldrb    w21, [x0, x18]
     strb    w21, [x1, x20]
     b       2b
-4:
+3:
     ldr     x0, [x29, output_buffer]
     ldp     x29, x30, [sp], #88
     ret
