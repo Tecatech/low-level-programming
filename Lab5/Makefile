@@ -16,10 +16,10 @@ PREOBJ = $(OBJPATH)/crt1.o $(OBJPATH)/crti.o
 POSTOBJ = $(OBJPATH)/crtn.o
 
 HEAD = stb_image.h stb_image_write.h
-SRCS = Lab5_clang.c Lab5_ARM64.s
-OBJS = Lab5_clang.o Lab5_ARM64.o
+SRCS = lab5_clang.c lab5_arm64.s
+OBJS = lab5_clang.o lab5_arm64.o
 
-EXE = Lab5
+EXE = lab5
 
 all: $(SRCS) $(EXE)
 

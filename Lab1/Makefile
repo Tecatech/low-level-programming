@@ -6,10 +6,10 @@ LD = $(CROSS-COMPILE)ld
 ASFLAGS = -g
 LDFLAGS = -g -static
 
-SRCS = Lab1.s
+SRCS = lab1.s
 OBJS = $(SRCS:.s=.o)
 
-EXE = Lab1
+EXE = lab1
 
 all: $(SRCS) $(EXE)
 
